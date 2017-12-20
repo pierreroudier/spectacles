@@ -5,7 +5,7 @@ Version: 0.5-0
 Date: 2017-12-20
 Authors@R: person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre"))
 Description: Stores and eases the manipulation of spectra and associated data,
-    with dedicated classes for spatial and soil-related datasets.
+    with dedicated classes for spatial and soil-related data.
 URL: https://github.com/pierreroudier/spectacles/
 BugReports: https://github.com/pierreroudier/spectacles/issues
 Depends:
