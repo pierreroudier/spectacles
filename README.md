@@ -1,4 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/spectacles/spectacles.svg?branch=master)](https://travis-ci.org/pierreroudier/spectacles)
+[![Travis-CI Build Status](https://travis-ci.org/pierreroudier/spectacles.svg?branch=master)](https://travis-ci.org/pierreroudier/spectacles)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spectacles)](https://CRAN.R-project.org/package=spectacles)
 
 # Welcome to the spectacles project page
