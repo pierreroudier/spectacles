@@ -63,16 +63,13 @@ spectra(australia) <- sr_no ~ ... ~ 350:2500
 
 # Aggregation on the whole collection
 m <- aggregate_spectra(australia, fun = mean)
-summary(m)
 plot(m)
 
 # Aggregation factor-wise
 
 # Generate some kind of factor
 australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE)
-summary(australia)
 m <- aggregate_spectra(australia, fun = mean, id = 'fact')
-summary(m)
 plot(m)
 }
 \seealso{

@@ -81,16 +81,13 @@ big.head(oz)
 # Using spectra() to initiate a Spectra from 
 # the data.frame
 spectra(oz) <- sr_no ~ 350:2500
-summary(oz)
 
 # It is possible to select wavelengths using the formula interface
 data(oz)
 spectra(oz) <- sr_no ~ 350:5:2500
-summary(oz)
 
 data(oz)
 spectra(oz) <- sr_no ~ 500:1800
-summary(oz)
 
 ## CREATING SpectraDataFrame OBJECTS
 ##
@@ -99,24 +96,20 @@ summary(oz)
 # the data.frame
 data(oz)
 spectra(oz) <- sr_no ~ carbon + ph + clay ~ 350:2500
-summary(oz)
 
 # Selecting data to be included in the SpectradataFrame object
 data(oz)
 spectra(oz) <- sr_no ~ carbon ~ 350:2500
-summary(oz)
 
 # Forcing the creation of new ids using the id keyword in the 
 # formula interface
 data(oz)
 spectra(oz) <- id ~ carbon ~ 350:2500
-summary(oz)
 ids(oz, as.vector = TRUE)
 
 # Using the "..." short-hand to select all the remaining columns
 data(oz)
 spectra(oz) <- sr_no ~ ... ~ 350:2500
-summary(oz)
 
 ## CREATING Spectra OBJECTS FROM
 ## BY-COLS-FORMATTED DATA
@@ -140,12 +133,10 @@ big.head(oz_by_col)
 
 # Convert it into Spectra object
 spectra(oz_by_col, mode = "colwise") <- wl ~ ...
-summary(oz_by_col)
 
 # Then data can be added to promote it as a SpectraDataFrame
 my.data <- features(oz, exclude_id = FALSE)
 features(oz_by_col, key = 'sr_no') <- my.data
-summary(oz_by_col)
 
 }
 \author{

@@ -28,12 +28,10 @@
 #' data(australia)
 #' big.head(australia)
 #' spectra(australia) <- sr_no ~ ... ~ 350:2500
-#' summary(australia)
 #' 
 #' data(oz)
 #' big.head(oz)
 #' spectra(oz) <- sr_no ~ ... ~ 350:2500
-#' summary(oz)
 #' 
 NULL
 
@@ -45,7 +43,6 @@ NULL
 #' @author Pierre Roudier
 #' @examples 
 #' oz <- load_oz()
-#' summary(oz)
 #' 
 load_oz <- function(n = NULL) {
   # Load data as SPC

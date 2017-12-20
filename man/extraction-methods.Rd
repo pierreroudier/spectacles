@@ -94,18 +94,15 @@ australia[['carbon']]
 # Creating new features
 australia$foo <- runif(nrow(australia))
 australia[['bar']] <- runif(nrow(australia))
-summary(australia)
 
 # Replacing values
 australia$foo <- sample(LETTERS[1:5], size = nrow(australia), replace = TRUE)
 australia[['bar']] <- sample(c(TRUE, FALSE), size = nrow(australia), replace = TRUE)
-summary(australia)
 
 # Promote Spectra to SpectraDataFrame
 s <- as(australia, 'Spectra')
 class(s)
 s$foo <- runif(nrow(s))
-summary(s)
 
 }
 \author{

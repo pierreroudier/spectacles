@@ -24,12 +24,10 @@ The \code{data.frame} contains the following columns:
 data(australia)
 big.head(australia)
 spectra(australia) <- sr_no ~ ... ~ 350:2500
-summary(australia)
 
 data(oz)
 big.head(oz)
 spectra(oz) <- sr_no ~ ... ~ 350:2500
-summary(oz)
 
 }
 \references{

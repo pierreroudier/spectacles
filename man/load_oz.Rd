@@ -17,7 +17,6 @@ Loads the australia dataset as a SpectraDataFrame
 }
 \examples{
 oz <- load_oz()
-summary(oz)
 
 }
 \author{

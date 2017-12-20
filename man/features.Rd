@@ -98,7 +98,6 @@ head(d)
 
 # Affecting data to Spectra object
 features(s, key = 'id') <- d
-summary(s)
 
 # Adding data to an existing SpectraDataFrame object
 features(oz, key = 'id') <- d

@@ -23,7 +23,6 @@
 #'   id <- c("A", "B")
 #'   nir <- matrix(runif(2*length(wls)), nrow = 2)
 #'   s <- Spectra(wl = wls, nir = nir, id = id, units = "nm")
-#'   summary(s)
 #' 
 #' @export Spectra
 "Spectra" <- function(wl=numeric(), nir=matrix(), id=as.character(NA), units="nm") {
@@ -129,8 +128,6 @@ summary.Spectra <- function (object, ...){
     obj
 }
 
-# setMethod("summary", "summary.Spectra", summary.Spectra)
-
 print.summary.Spectra <- function(x, ...) {
     cat(paste("Object of class ", x[["class"]], "\n", sep = ""))
     cat("Set of ", nrow(x[['id']])," spectra\n", sep = "")
@@ -153,8 +150,6 @@ print.summary.Spectra <- function(x, ...) {
     }
     invisible(x)
 }
-
-# setMethod("print", "summary.Spectra", print.summary.Spectra)
 
 ## PRINT
 
@@ -263,16 +258,13 @@ if (!isGeneric("spectra"))
 #' # Using spectra() to initiate a Spectra from 
 #' # the data.frame
 #' spectra(oz) <- sr_no ~ 350:2500
-#' summary(oz)
 #' 
 #' # It is possible to select wavelengths using the formula interface
 #' data(oz)
 #' spectra(oz) <- sr_no ~ 350:5:2500
-#' summary(oz)
 #' 
 #' data(oz)
 #' spectra(oz) <- sr_no ~ 500:1800
-#' summary(oz)
 #' 
 #' ## CREATING SpectraDataFrame OBJECTS
 #' ##
@@ -281,24 +273,20 @@ if (!isGeneric("spectra"))
 #' # the data.frame
 #' data(oz)
 #' spectra(oz) <- sr_no ~ carbon + ph + clay ~ 350:2500
-#' summary(oz)
 #' 
 #' # Selecting data to be included in the SpectradataFrame object
 #' data(oz)
 #' spectra(oz) <- sr_no ~ carbon ~ 350:2500
-#' summary(oz)
 #' 
 #' # Forcing the creation of new ids using the id keyword in the 
 #' # formula interface
 #' data(oz)
 #' spectra(oz) <- id ~ carbon ~ 350:2500
-#' summary(oz)
 #' ids(oz, as.vector = TRUE)
 #' 
 #' # Using the "..." short-hand to select all the remaining columns
 #' data(oz)
 #' spectra(oz) <- sr_no ~ ... ~ 350:2500
-#' summary(oz)
 #' 
 #' ## CREATING Spectra OBJECTS FROM
 #' ## BY-COLS-FORMATTED DATA
@@ -322,12 +310,10 @@ if (!isGeneric("spectra"))
 #' 
 #' # Convert it into Spectra object
 #' spectra(oz_by_col, mode = "colwise") <- wl ~ ...
-#' summary(oz_by_col)
 #' 
 #' # Then data can be added to promote it as a SpectraDataFrame
 #' my.data <- features(oz, exclude_id = FALSE)
 #' features(oz_by_col, key = 'sr_no') <- my.data
-#' summary(oz_by_col)
 #' 
 setMethod("spectra", "Spectra",
   function(object) {
@@ -392,7 +378,6 @@ if (!isGeneric("wl"))
 #' data(oz)
 #' wl(oz) <- 350:2500
 #' ids(oz) <- ~ sr_no
-#' summary(oz)
 #' 
 #' @export wl
 setMethod("wl", "Spectra",
@@ -691,18 +676,15 @@ setMethod("res", "Spectra", .res.Spectra)
 #' # Creating new features
 #' australia$foo <- runif(nrow(australia))
 #' australia[['bar']] <- runif(nrow(australia))
-#' summary(australia)
 #' 
 #' # Replacing values
 #' australia$foo <- sample(LETTERS[1:5], size = nrow(australia), replace = TRUE)
 #' australia[['bar']] <- sample(c(TRUE, FALSE), size = nrow(australia), replace = TRUE)
-#' summary(australia)
 #' 
 #' # Promote Spectra to SpectraDataFrame
 #' s <- as(australia, 'Spectra')
 #' class(s)
 #' s$foo <- runif(nrow(s))
-#' summary(s)
 #' 
 setMethod("[", c("Spectra", "ANY", "ANY", "missing"),
   function(x, i, j, ..., drop = FALSE) {
@@ -880,11 +862,9 @@ setReplaceMethod("features", signature("Spectra", "ANY"),
 #' spectra(australia) <- sr_no ~ ... ~ 350:2500
 #' 
 #' s <- rbind(australia, australia, create_new_ids = TRUE)
-#' summary(s)
 #' 
 #' l <- separate(australia, calibration = 0.6)
 #' s <- rbind(l$validation, l$calibration)
-#' summary(s)
 rbind.Spectra <- function(..., create_new_ids = FALSE, new_ids = NULL) {
   dots <- list(...)
   names(dots) <- NULL
@@ -980,8 +960,6 @@ rbind.SpectraDataFrame <- rbind.Spectra
 #' 
 #' # Generate some kind of factor
 #' australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE) 
-#' summary(australia)
-#' 
 #' r <- split(australia, 'fact')
 #' str(r)
 #' 
@@ -1038,7 +1016,6 @@ setMethod("split", "Spectra", function(x, f, drop = FALSE, ...){
 #' 
 #' # Modifying and creating attributes
 #' m <- mutate(australia, sqrt_carbon = sqrt(carbon), foo = clay + ph, nir = log1p(1/nir))
-#' summary(m)
 #' plot(m)
 setMethod("mutate", "Spectra", function (.data, ...){
 
@@ -1100,10 +1077,6 @@ if (!isGeneric("separate"))
 #' # The result is a list of two Spectra* objects
 #' str(l)
 #' lapply(l, nrow)
-#' 
-#' summary(l$calibration)
-#' summary(l$validation)
-#' 
 setMethod("separate", "Spectra", function(obj, calibration){
   if (calibration < 1)
     calibration <- floor(calibration*nrow(obj))

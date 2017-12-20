@@ -4,7 +4,7 @@
 # do not need to add a dep on RColorBrewer, but users are
 # encouraged to make use of it in the doc.
 #
-# Currently teh default scheme is defined by:
+# Currently the default scheme is defined by:
 # library(RcolorBrewer)
 # brewer.pal(n=5, name ="Set1")
 #

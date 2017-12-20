@@ -34,10 +34,6 @@ l <- separate(australia, calibration=0.7)
 # The result is a list of two Spectra* objects
 str(l)
 lapply(l, nrow)
-
-summary(l$calibration)
-summary(l$validation)
-
 }
 \author{
 Pierre Roudier \url{pierre.roudier@gmail.com}

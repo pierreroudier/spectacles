@@ -65,7 +65,6 @@ wl(oz)
 data(oz)
 wl(oz) <- 350:2500
 ids(oz) <- ~ sr_no
-summary(oz)
 
 }
 \seealso{

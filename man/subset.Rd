@@ -37,11 +37,9 @@ spectra(australia) <- sr_no ~ ... ~ 350:2500
 
 # Subset on attributes
 s <- subset(australia, carbon < 5)
-summary(s)
 
 # Subset and selection of attributes
 s <- subset(australia, carbon < 5, select = 1)
-summary(s)
 }
 \seealso{
 \code{\link{mutate}}

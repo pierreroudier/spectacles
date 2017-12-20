@@ -31,7 +31,6 @@ Constructor for the Spectra class. Creates a Spectra object from scratch.
   id <- c("A", "B")
   nir <- matrix(runif(2*length(wls)), nrow = 2)
   s <- Spectra(wl = wls, nir = nir, id = id, units = "nm")
-  summary(s)
 
 }
 \seealso{

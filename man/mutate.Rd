@@ -42,7 +42,6 @@ plot(m)
 
 # Modifying and creating attributes
 m <- mutate(australia, sqrt_carbon = sqrt(carbon), foo = clay + ph, nir = log1p(1/nir))
-summary(m)
 plot(m)
 }
 \references{

@@ -217,7 +217,6 @@ if (!isGeneric("features"))
 #' 
 #' # Affecting data to Spectra object
 #' features(s, key = 'id') <- d
-#' summary(s)
 #' 
 #' # Adding data to an existing SpectraDataFrame object
 #' features(oz, key = 'id') <- d
@@ -484,9 +483,7 @@ setMethod("melt_spectra", "SpectraDataFrame", function(obj, attr = NULL, ...){
 #' 
 #' # Subset on attributes
 #' s <- subset(australia, carbon < 5)
-#' summary(s)
 #' 
 #' # Subset and selection of attributes
 #' s <- subset(australia, carbon < 5, select = 1)
-#' summary(s)
 setMethod("subset", "SpectraDataFrame", .subset.SpectraDataFrame)

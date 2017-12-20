@@ -48,8 +48,6 @@ str(r)
 
 # Generate some kind of factor
 australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE) 
-summary(australia)
-
 r <- split(australia, 'fact')
 str(r)
 
