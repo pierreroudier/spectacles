@@ -1,0 +1,67 @@
+-------------- Short term --------------------
+
+- bug on `[` for SDF. At the moment needs to specify k=350:500 (for example). We need to be able to do this without specifying the option name
+
+- Re-write DESCRIPTION file, esp. Imports/Suggests part
+- implement "[<-" (like australia[,'PC1',] <- NULL) 
+- order of rows, cols, spectra in `[` --> use rows, spectra, cols
+- implement how to delete features from @data slot
+- moving average/moving window stuff? --> linear interpolation?
+- Matrix operations (maybe this could just be done by using spectra(foo)?)
+- sweep() would be good as well
+- implement parallel option throught something like `inspectr_options(...)`
+- rename continuum_removal to something shorter? cont_rm?
+- improve fill_spectra? Solution may as well be including a drop=... option in cut() and `[`. When TRUE, removes WL, when FALSE just puts NA values. Consequences for further modelling?
+- implement (spatial) overlay function
+
+- Begin to work on vignettes:
+  * introduction vignette --> Creation and maniuplation, basic stuff like PCA, k-means and hclust
+  * analysis vignette
+  * graphics vignette
+  * spatial vignette --> PC study, raster overlays
+  * hacking with inspectr: how and when to hook your own 
+    functions in, how to work with other packages
+  * soil vignette
+
+- Push the SpatialSpectraDataFrame class
+
+- allow rbind to work on Spectra + SpectraDataFrames (including NA for Spectra individuals)
+- what about cbind/strategy to add wavelengths to a collection?
+
+- Implement a sample_spectra.Spectra() method, including various spectra sampling strategies:
+  * random
+  * KS
+  * OptiSim
+  * K-means
+  * DBSCAN
+  * ref: http://dx.doi.org/10.1016/S0003-2670(02)00651-7
+
+- Push the Kennard-Stone and OptiSim algorithms for sampling
+- Use RCpp(Armadillo?) for the KS algo
+
+- outlier analysis methods (Mahalonobis?) --> Just an illustration in the vignette, use package:chemometrics
+- 2D correlation between two sets of spectra --> same
+
+- Document how to centre the spectra --> apply_spectra(foo, scale)
+- Implement wavelet-based wl selection
+- Implement the parameter orthogonalisation algorithm (Roger et al., 2003)
+- conversion to and from hyperSpec
+- Re-do Viscarra-Rossel & Behrens (2010) with inspectr
+- Showcase the use of Cubist models
+
+- Potential speed up for reading big files: sqldf::sqldf
+I could implement a file=... option in spectra() to create Spectra
+object directly from the file (provided there's a formula)
+Here's the relevant code snippet:
+rd_sqldf <- function(fn) {
+  con <- file(fn)
+  sqldf("select * from con", dbname = tempfile(), file.format = list(header = T, row.names = F))
+}
+
+------------- Longer term --------------------
+
+- Identify slow stuff and see if they can be done in C++ (eg advanced sampling methods)
+- File-based storage of big collections
+- data.table?
+- Integration of a viewer, possibly using playwith, to
+manipulate (eg crop) the spectra in a collection.

@@ -1,0 +1,43 @@
+Package: spectacles
+Type: Package
+Title: Storing, Manipulating and Analysis Spectroscopy and Associated Data in R
+Version: 0.5-0
+Date: 2017-12-20
+Authors@R: person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre"))
+Description: Stores and eases the manipulation of spectra and associated data,
+    with dedicated classes for spatial and soil-related datasets.
+URL: https://github.com/pierreroudier/spectacles/
+BugReports: https://github.com/pierreroudier/spectacles/issues
+Depends:
+    R (>= 2.14)
+Imports:
+    ggplot2,
+    methods,
+    plyr,
+    reshape2,
+    stringr,
+    baseline,
+    signal,
+    epiR
+Suggests:
+    caret,
+    pls,
+    RColorBrewer
+License: GPL-3
+LazyData: true
+Collate: 
+    'spectacles-package.R'
+    'AAA-Classes.R'
+    'Spectra-methods.R'
+    'SpectraDataFrame-methods.R'
+    'ZZZ.R'
+    'aggregate_spectra.R'
+    'australia.R'
+    'big_head.R'
+    'kenstone.R'
+    'performance.R'
+    'plot-methods.R'
+    'preprocessing.R'
+    'setters.R'
+    'splice.R'
+RoxygenNote: 6.0.1

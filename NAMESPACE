@@ -1,0 +1,117 @@
+importFrom("grDevices", "chull")
+
+importFrom("stats", "approx", "as.formula", "cor", "dist", "model.frame", "quantile", "sd")
+importFrom("utils", "data", "setTxtProgressBar", "txtProgressBar")
+
+import(ggplot2)
+import(methods)
+
+importFrom(baseline,
+  baseline,
+  getCorrected
+)
+
+importFrom(reshape2,
+  acast,
+  melt
+)
+
+importFrom(signal,
+  interp1
+)
+
+importFrom(stringr,
+  fixed,
+  str_c,
+  str_detect,
+  str_extract,
+  str_extract_all,
+  str_length,
+  str_split,
+  str_trim
+)
+
+importFrom(plyr,
+  aaply,
+  colwise,
+  ddply,
+  laply,
+  llply,
+  join,
+  mutate
+)
+
+importFrom(epiR, 
+  epi.ccc
+)
+    
+exportClasses(
+  Spectra,
+  SpectraDataFrame
+)
+
+export(
+  big.head,
+  big.tail,
+  
+  Spectra,
+  SpectraDataFrame,
+
+  apply_spectra,
+  continuum_removal,
+  snv,
+  rnv,
+
+  rbind.Spectra,
+  rbind.SpectraDataFrame,
+  
+  load_oz,
+  
+  spectroSummary,
+  postResampleSpectro
+)
+
+S3method(dim, Spectra)
+S3method(length, Spectra)
+S3method(plot, Spectra)
+S3method(names, SpectraDataFrame)
+S3method("names<-", SpectraDataFrame)
+S3method(as.data.frame, Spectra)
+S3method(as.data.frame, SpectraDataFrame)
+S3method(summary, Spectra)
+S3method(rbind, Spectra)
+S3method(rbind, SpectraDataFrame)
+
+exportMethods(
+  spectra,
+  "spectra<-",
+  wl,
+  "wl<-",
+  ids,
+  "ids<-",
+  features,
+  "features<-",
+  wl_units,
+  "wl_units<-",
+  res,
+  "[", "$", "[[",
+  "$<-", 
+#  nrow,
+#  ncol,
+#  dim,
+  aggregate_spectra,
+  base_line,
+  cut,
+  fill_spectra,
+  kenstone,
+  melt_spectra,
+  mutate,
+  # plot,
+  plot_summary,
+  plot_stack,
+  plot_offset,
+  separate,
+  splice,
+  split,
+  subset
+)
