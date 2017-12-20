@@ -1,9 +1,17 @@
 Package: spectacles
 Type: Package
-Title: Storing, Manipulating and Analysis Spectroscopy and Associated Data in R
+Title: Storing, Manipulating and Analysis Spectroscopy and Associated Data
 Version: 0.5-0
 Date: 2017-12-20
 Authors@R: person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre"))
+Authors@R: c(
+    person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre")),
+    person("Kuhn", "Max", role = "ctb"),
+    person("Hovde Liland", "Kristian", role = "ctb"),
+    person("Mevik", "Bjorn-Helge", role = "ctb"),
+    person("Hadley", "Wickham", email = "hadley@rstudio.com", role = "ctb"),
+    person("Viscarra Rossel", "Raphael", role = "dtc")
+)
 Description: Stores and eases the manipulation of spectra and associated data,
     with dedicated classes for spatial and soil-related data.
 URL: https://github.com/pierreroudier/spectacles/
