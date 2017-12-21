@@ -165,7 +165,7 @@ if (!isGeneric('base_line'))
 #' Liland and Bjorn-Helge Mevik
 #' @seealso \code{\link{continuum_removal}}, \code{\link{snv}},
 #' \code{\link{rnv}}
-#' @references Kristian Hovde Liland and Bjrn-Helge Mevik (2011). baseline:
+#' @references Kristian Hovde Liland and Bjorn-Helge Mevik (2011). baseline:
 #' Baseline Correction of Spectra. R package version 1.0-1.
 #' http://CRAN.R-project.org/package=baseline
 #' @examples
@@ -210,10 +210,6 @@ setMethod('base_line', 'Spectra', function(object, ...) {
   spectra(object) <- getCorrected(new_nir)
   object
 })
-
-
-
-
 
 #' Continuum removal
 #' 
