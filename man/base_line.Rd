@@ -88,7 +88,7 @@ plot(australia)
 
 }
 \references{
-Kristian Hovde Liland and Bjrn-Helge Mevik (2011). baseline:
+Kristian Hovde Liland and Bjorn-Helge Mevik (2011). baseline:
 Baseline Correction of Spectra. R package version 1.0-1.
 http://CRAN.R-project.org/package=baseline
 }

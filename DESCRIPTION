@@ -6,7 +6,7 @@ Date: 2017-12-21
 Authors@R: c(person(given = "Pierre", family = "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre")),
     person(given = "Max", family = "Kuhn", role = "ctb"),
     person(given = "Kristian Hovde", family = "Liland", role = "ctb"),
-    person(given = "Bjørn-Helge", family = "Mevik", role = "ctb"),
+    person(given = "Bjorn-Helge", family = "Mevik", role = "ctb"),
     person(given = "Hadley", family = "Wickham", role = "ctb"),
     person(given = "Raphael", family = "Viscarra Rossel", role = "dtc"))
 Description: Stores and eases the manipulation of spectra and associated data,
