@@ -3,12 +3,12 @@ Type: Package
 Title: Storing, Manipulating and Analysis Spectroscopy and Associated Data
 Version: 0.5-0
 Date: 2017-12-21
-Authors@R: c(person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre")),
-    person("Kuhn", "Max", role = "ctb"),
-    person("Hovde Liland", "Kristian", role = "ctb"),
-    person("Mevik", "Bjorn-Helge", role = "ctb"),
-    person("Hadley", "Wickham", role = "ctb"),
-    person("Viscarra Rossel", "Raphael", role = "dtc"))
+Authors@R: c(person(given = "Pierre", family = "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre")),
+    person(given = "Max", family = "Kuhn", role = "ctb"),
+    person(given = "Kristian Hovde", family = "Liland", role = "ctb"),
+    person(given = "Bjørn-Helge", family = "Mevik", role = "ctb"),
+    person(given = "Hadley", family = "Wickham", role = "ctb"),
+    person(given = "Raphael", family = "Viscarra Rossel", role = "dtc"))
 Description: Stores and eases the manipulation of spectra and associated data,
     with dedicated classes for spatial and soil-related data.
 URL: https://github.com/pierreroudier/spectacles/
