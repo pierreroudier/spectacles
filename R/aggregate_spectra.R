@@ -95,23 +95,30 @@ setMethod("aggregate_spectra", "SpectraDataFrame",
             
       res <- SpectraDataFrame(res, data = data.frame(matrix(data, nrow = 1, dimnames = list(id, names(obj)))))
     }
-
+    
     # There is a variable against which the data will be aggregated
     else {
-      if (id %in% names(features(obj))) {
-
+     if (id %in% names(features(obj))) {
+                
         # Col index of the splitting variable
-        idx <- which(names(features(obj)) == id)
-
+        idx <- paste("(names(features(obj)) == '", id, "')", sep = "")
+        idx <- paste(idx, collapse="|")
+        idx <- which(eval(parse(text=idx)))
+                
         # Creating spectra splits
         s <- data.frame(id = features(obj)[, idx, drop = FALSE], spectra(obj))
-        
-        s <- ddply(s, id, colwise(fun), ...)
+        colnames(s) <- gsub("id.", "", colnames(s))
+        s <- na.omit(ddply(s, id, colwise(fun), ...))
+              
         # Remove id used to split data.frame
-        s <- s[, -1]
-        
+        s <- s[, -(1:(length(id)))]
+                
         # new data slot
-        d <- ddply(features(obj), id, colwise(fun, ...))
+        feat <- merge((features(obj)[, as.vector(id)]), (select_if(features(obj), is.numeric)), by="row.names")
+        rownames(feat) <- feat[,1]
+        feat <- feat[,-1]
+        d <- ddply(feat, id, colwise(fun), .drop=TRUE, ...)
+        d <- na.omit(d[colSums(!is.na(d)) > 0])
         
         # recompose the object
         res <- SpectraDataFrame(wl = wl(obj), nir = s, units = wl_units(obj), data = d)
