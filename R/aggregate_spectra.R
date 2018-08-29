@@ -114,7 +114,7 @@ setMethod("aggregate_spectra", "SpectraDataFrame",
         s <- s[, -(1:(length(id)))]
                 
         # new data slot
-        feat <- merge(select(features(obj), as.vector(id)), (select_if(features(obj), is.numeric)), by="row.names",  suffixes = "")
+        feat <- merge(subset(features(obj), select=c(id)), (select_if(features(obj), is.numeric)), by="row.names",  suffixes = "")
         rownames(feat) <- feat[,1]
         feat <- feat[,-1]
         d <- ddply(feat, id, colwise(fun), .drop=TRUE, ...)
