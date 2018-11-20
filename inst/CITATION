@@ -1,13 +1,13 @@
-citHeader("To cite inspectr in publications, please use:")
+citHeader("To cite spectacles in publications, please use:")
 
-if(!exists("meta") || is.null(meta)) meta <- packageDescription("inspectr")
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("spectacles")
 year <- sub("-.*", "", meta$Date)
 vers <- paste("R package version", meta$Version)
 
 citEntry(entry = "Manual",
-  title = "inspectr: Storing and Manipulating Spectroscopy Data in R",
+  title = "spectacles: Storing and Manipulating Spectroscopy Data in R",
   author = personList(as.person("Pierre Roudier")),
   year = year,
   note = vers,
-  textVersion = paste("Pierre Roudier (", year, "). inspectr: Storing and Manipulating Spectroscopy Data in R ", vers, ".", sep="")
+  textVersion = paste("Pierre Roudier (", year, "). spectacles: Storing and Manipulating Spectroscopy Data in R ", vers, ".", sep="")
 )
