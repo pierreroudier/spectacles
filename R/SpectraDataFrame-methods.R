@@ -98,6 +98,7 @@
       }
     }
   }
+  
   if (is(data, "numeric") | is(data, "integer"))
     data <- as.data.frame(data)
 

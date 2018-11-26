@@ -111,7 +111,18 @@ setMethod("aggregate_spectra", "SpectraDataFrame",
         s <- s[, -1]
         
         # new data slot
-        d <- ddply(features(obj), id, colwise(fun, ...))
+        dat_s <- features(obj)
+        
+        # testing if there is any other column than 
+        # just the ID
+        if(ncol(dat_s) > 1) {
+          d <- ddply(features(obj), id, colwise(fun, ...))
+        } else { 
+          # If that's only the ID, we need to explicitely 
+          # create the data.frame
+          d <- data.frame(unique(features(obj)[,id])) 
+          names(d) <- id
+        }
         
         # recompose the object
         res <- SpectraDataFrame(wl = wl(obj), nir = s, units = wl_units(obj), data = d)
