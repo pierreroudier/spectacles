@@ -102,8 +102,13 @@
   if (is(data, "numeric") | is(data, "integer"))
     data <- as.data.frame(data)
 
-  rownames(data) <- id[, 1]
-
+  # We only use rownames if there's no duplicated IDs. rownames are purely aesthetic.
+  if (!any(duplicated(id[, 1]))) {
+    rownames(data) <- id[, 1]
+  } else {
+    rownames(data) <- NULL
+  }
+  
   new("SpectraDataFrame", wl=wl, nir=nir, id=id, units=units, data=data)
 }
 
