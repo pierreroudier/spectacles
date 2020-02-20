@@ -131,7 +131,7 @@ setReplaceMethod("wl", "Spectra",
 #' @param object a data.frame
 #' @return returns a list of column names for the id slot,
 #' the data slot and the nir slot of teh Spectra* object
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @import stringr plyr
 .parse_formula <- function(formula, object){
   formula <- str_c(deparse(formula, 500), collapse="")

@@ -72,8 +72,10 @@ setClass(
       stop("number of individuals and number of rows in the spectra matrix don't match")
     if ((length(object@wl > 1) & (ncol(object@nir) != length(object@wl))))
       stop("number of columns in the spectra matrix and number of observed wavelengths don't match")
-    if (length(unique(object@id[,1])) != nrow(object@id))
-      stop("The ids of the samples need to be unique")
+    
+    # if (length(unique(object@id[,1])) != nrow(object@id))
+    #   stop("The ids of the samples need to be unique")
+    
     return(TRUE)
   }
 )

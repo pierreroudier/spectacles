@@ -22,10 +22,12 @@ software from ASD, which aims at correcting steps in the data (see details).
 }
 \details{
 The SWIR1 part of the spectrum (1000-1800 nm) is taken as a reference 
-for corrections as it is stable to the instrument sensitivity drift (Beal & Eamon, 2010)
+for corrections as it is stable to the instrument sensitivity drift (Beal and Eamon, 2010)
 
-This is based on a description of the splice correction algorithm available on
-the ASD website at \url{http://support.asdi.com/Document/Documents.aspx}.
+This is based on a description of the splice correction algorithm described in:
+
+Beal, D. and Eamon, M., 1996. Dynamic, Parabolic Linear Transformations of 
+  'Stepped' Radiometric Data. Analytical Spectral Devices Inc., Boulder, CO.
 }
 \examples{
 
@@ -36,5 +38,5 @@ plot(oz_spliced)
 
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

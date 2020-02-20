@@ -12,7 +12,7 @@ if (!isGeneric("kenstone"))
 #' @param ... ignored
 #' @return A vector of length size giving the indices of the selected
 #' individuals in x.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @references 
 #' Kennard, L.A. Stone, Technometrics 11 (1969) 137.
 setMethod("kenstone", "Spectra", 

@@ -51,6 +51,6 @@ Geophysical Research 89, 6329--6340.
 \code{\link{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}, based on code from
+Pierre Roudier \email{pierre.roudier@gmail.com}, based on code from
 Raphael Viscarra-Rossel.
 }

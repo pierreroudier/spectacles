@@ -28,7 +28,7 @@
 #' @param attr attribute against which lines are coloured (only for \code{gg =
 #' TRUE}
 #' @param ... additional parameters passed to \code{matplot}
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -73,7 +73,11 @@
 #' # Using an attribute to group spectra
 #' 
 #' # Generate some kind of factor
-#' australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE) 
+#' australia$fact <- sample(
+#'   LETTERS[1:3], 
+#'   size = nrow(australia), 
+#'   replace = TRUE
+#' ) 
 #' 
 #' s <- aggregate_spectra(australia, fun = mean, id = 'fact')
 #' plot(s, gg = TRUE, attr = 'fact')
@@ -351,7 +355,7 @@ if (!isGeneric("fill_spectra")) {
 #' @param fill values to fill gaps in the data with
 #' @param ... ignored
 #' @return An object of the same class as \code{obj}
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data

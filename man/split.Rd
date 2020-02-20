@@ -56,5 +56,5 @@ str(r)
 lapply(r, nrow)
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

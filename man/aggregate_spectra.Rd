@@ -30,7 +30,7 @@ Aggregates spectral and data information of a \code{Spectra} object using a
 user-defined function
 }
 \details{
-There is two distinct function for \code{Spectra} and \code{SpectraDataFrame} classes. For \code{SpectraDataFrame} objects, associated data is also aggregated using the function provided by the \code{fun} option. Additionally, the method for \code{SpectraDataFrame} has an \code{id} option that allows to specify an attribute which will be used to split the object, apply sequentially the \code{fun} function, and recombine the results in an unique object.
+For \code{SpectraDataFrame} objects, associated data is also aggregated using the function provided by the \code{fun} option. Additionally, the method for \code{SpectraDataFrame} has an \code{id} option that allows to specify an attribute which will be used to split the object, apply sequentially the \code{fun} function, and recombine the results in an unique object.
 }
 \section{Methods}{
  \describe{
@@ -68,7 +68,11 @@ plot(m)
 # Aggregation factor-wise
 
 # Generate some kind of factor
-australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE)
+australia$fact <- sample(
+  LETTERS[1:3], 
+  size = nrow(australia), 
+  replace = TRUE
+)
 m <- aggregate_spectra(australia, fun = mean, id = 'fact')
 plot(m)
 }
@@ -76,5 +80,5 @@ plot(m)
 \code{\link{apply_spectra}}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

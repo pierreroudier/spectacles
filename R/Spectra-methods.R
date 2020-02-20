@@ -14,7 +14,7 @@
 #' @param units a character giving the unit in which the wavelengths values are
 #' expressed
 #' @return a new \code{"Spectra"} object
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @seealso \code{spectra}, \code{wl},
 #' \code{Spectra-class}, \code{SpectraDataFrame}
 #' @examples
@@ -104,7 +104,7 @@ if (!isGeneric("summary"))
 #' @param object an object of class \code{Spectra} or \code{SpectraDataFrame}
 #' @param ... Additional arguments passed to \code{summary}
 #' @return A \code{"summary.Spectra"} object
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' data(oz)
@@ -243,7 +243,7 @@ if (!isGeneric("spectra"))
 #'  }
 #' }
 #' 
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -354,11 +354,10 @@ if (!isGeneric("wl"))
 #' @param object a \code{"data.frame"} or an object inheriting from class
 #' \code{Spectra}
 #' @param value the wavelengths of the \code{Spectra*} object to create
-#' @param ... Ignored
 #' @return If applied on a \code{"data.frame"}, either a \code{Spectra} or a
 #' \code{SpectraDataFrame} object. If applied on a \code{Spectra*} object, a
 #' vector.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @seealso \code{spectra}, \code{Spectra-class},
 #' \code{SpectraDataFrame-class}
 #' @examples
@@ -421,7 +420,7 @@ if (!isGeneric("ids"))
 #'  \item \code{ids(object, ..., as.vector = TRUE)} 
 #'  \item \code{ids(object) <- value} 
 #' }
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -466,7 +465,7 @@ if (!isGeneric("wl_units"))
 #' @param object an object inheriting from class \code{Spectra}
 #' @param value a character string
 #' @return A vector
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' # Loading example data
 #' data(oz)
@@ -528,7 +527,7 @@ setReplaceMethod("wl_units", "Spectra",
 #' returns a vector containing (1) the number of individuals, (2) in the number
 #' of wavelengths, and (3) the number of attributes in the collection
 #' 
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -600,7 +599,7 @@ setMethod("res", "integer", .res.numeric)
 #' @return a vector
 #'
 #' @method resolution Spectra
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 setMethod("res", "Spectra", .res.Spectra)
 
 ## overloads
@@ -662,7 +661,7 @@ setMethod("res", "Spectra", .res.Spectra)
 #' slot\cr \tab \code{name} \tab A literal character string or a name \cr \tab
 #' \code{...} \tab Ignored \cr \tab \code{drop} \tab Ignored \cr }}
 #' 
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -678,8 +677,16 @@ setMethod("res", "Spectra", .res.Spectra)
 #' australia[['bar']] <- runif(nrow(australia))
 #' 
 #' # Replacing values
-#' australia$foo <- sample(LETTERS[1:5], size = nrow(australia), replace = TRUE)
-#' australia[['bar']] <- sample(c(TRUE, FALSE), size = nrow(australia), replace = TRUE)
+#' australia$foo <- sample(
+#'   LETTERS[1:5], 
+#'   size = nrow(australia), 
+#'   replace = TRUE
+#' )
+#' australia[['bar']] <- sample(
+#'   c(TRUE, FALSE), 
+#'   size = nrow(australia), 
+#'   replace = TRUE
+#' )
 #' 
 #' # Promote Spectra to SpectraDataFrame
 #' s <- as(australia, 'Spectra')
@@ -793,7 +800,7 @@ setReplaceMethod("features", signature("Spectra", "ANY"),
 # 
 # #' Adds two Spectra objects together
 # #'
-# #' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+# #' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 # .add.Spectra <- function(x, y){
 #   tmp <- list()
 # 
@@ -940,7 +947,7 @@ rbind.SpectraDataFrame <- rbind.Spectra
 #' @param drop ignored
 #' @param ... further potential arguments passed to methods.
 #' @return A list of objects of same class as \code{x}.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -990,15 +997,14 @@ setMethod("split", "Spectra", function(x, f, drop = FALSE, ...){
 #' = log(1/nir)} \item To affect the attributes of the object, the definitions
 #' of new columns are simply given using attributes names, \code{newAttribute =
 #' 1/sqrt(attribute)} \item Both spectra and attrbutes can be transformed in
-#' one command, eg \code{mutate(s, nir = log(1/nir), newAttribute =
-#' 1/sqrt(attribute)} }
+#' one command.}
 #' 
 #' @name mutate
 #' @aliases mutate mutate.Spectra mutate,Spectra-method
 #' @docType methods
 #' @param .data an object inheriting from the \code{Spectra} class
 #' @param ... named parameters giving definitions of new columns
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}, from code from
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}, from code from
 #' Hadley Wickham
 #' @references Hadley Wickham (2011). The Split-Apply-Combine Strategy for Data
 #' Analysis. Journal of Statistical Software, 40(1), 1-29. URL
@@ -1015,7 +1021,12 @@ setMethod("split", "Spectra", function(x, f, drop = FALSE, ...){
 #' plot(m)
 #' 
 #' # Modifying and creating attributes
-#' m <- mutate(australia, sqrt_carbon = sqrt(carbon), foo = clay + ph, nir = log1p(1/nir))
+#' m <- mutate(
+#'   australia, 
+#'   sqrt_carbon = sqrt(carbon), 
+#'   foo = clay + ph, 
+#'   nir = log1p(1/nir)
+#' )
 #' plot(m)
 setMethod("mutate", "Spectra", function (.data, ...){
 
@@ -1063,10 +1074,9 @@ if (!isGeneric("separate"))
 #' @param obj an object inheriting from class \code{SpectraDataFrame}
 #' @param calibration The fraction of the dataset to be put in the calibration
 #' set
-#' @param ... Ignored
 #' @return An list with two \code{SpectraDataFrame} objects, one for the
 #' calibration, and the other for the validation.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data
@@ -1120,7 +1130,7 @@ if (!isGeneric('melt_spectra'))
 #' to split the spectra against. \cr \tab \code{...} \tab Ignored \cr }
 #' 
 #' }
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @references Hadley Wickham (2011). The Split-Apply-Combine Strategy for Data
 #' Analysis. Journal of Statistical Software, 40(1), 1-29. URL
 #' http://www.jstatsoft.org/v40/i01/.
@@ -1140,12 +1150,18 @@ if (!isGeneric('melt_spectra'))
 #' # using ggplot2
 #' 
 #' # Create some factor
-#' australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE)
+#' australia$fact <- sample(
+#'   LETTERS[1:3], 
+#'   size = nrow(australia), 
+#'   replace = TRUE
+#' )
 #' r <- melt_spectra(australia, attr = 'fact')
 #' 
 #' # Create plot
 #' library(ggplot2)
-#' p <- ggplot(r) + geom_line(aes(x=wl, y=nir, group=id, colour=fact)) + theme_bw()
+#' p <- ggplot(r) + 
+#'   geom_line(aes(x=wl, y=nir, group=id, colour=fact)) + 
+#'   theme_bw()
 #' print(p)
 #' }
 #' 
@@ -1183,7 +1199,7 @@ if (!isGeneric("cut")) {
 #' \code{x}
 #' @param ... ignored
 #' @return An object of the same class as \code{x}.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @examples
 #' 
 #' # Loading example data

@@ -74,12 +74,16 @@ plot(australia, lty = 1, col = brewer.pal(n = 8, name = "Set2"))
 # Using an attribute to group spectra
 
 # Generate some kind of factor
-australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE) 
+australia$fact <- sample(
+  LETTERS[1:3], 
+  size = nrow(australia), 
+  replace = TRUE
+) 
 
 s <- aggregate_spectra(australia, fun = mean, id = 'fact')
 plot(s, gg = TRUE, attr = 'fact')
 }
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

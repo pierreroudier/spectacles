@@ -38,5 +38,5 @@ Constructor for the Spectra class. Creates a Spectra object from scratch.
 \code{Spectra-class}, \code{SpectraDataFrame}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

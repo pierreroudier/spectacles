@@ -22,8 +22,6 @@
 \code{Spectra}}
 
 \item{value}{the wavelengths of the \code{Spectra*} object to create}
-
-\item{...}{Ignored}
 }
 \value{
 If applied on a \code{"data.frame"}, either a \code{Spectra} or a
@@ -72,5 +70,5 @@ ids(oz) <- ~ sr_no
 \code{SpectraDataFrame-class}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

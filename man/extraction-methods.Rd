@@ -96,8 +96,16 @@ australia$foo <- runif(nrow(australia))
 australia[['bar']] <- runif(nrow(australia))
 
 # Replacing values
-australia$foo <- sample(LETTERS[1:5], size = nrow(australia), replace = TRUE)
-australia[['bar']] <- sample(c(TRUE, FALSE), size = nrow(australia), replace = TRUE)
+australia$foo <- sample(
+  LETTERS[1:5], 
+  size = nrow(australia), 
+  replace = TRUE
+)
+australia[['bar']] <- sample(
+  c(TRUE, FALSE), 
+  size = nrow(australia), 
+  replace = TRUE
+)
 
 # Promote Spectra to SpectraDataFrame
 s <- as(australia, 'Spectra')
@@ -106,5 +114,5 @@ s$foo <- runif(nrow(s))
 
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

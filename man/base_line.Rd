@@ -67,7 +67,8 @@ plot(bl)
 bl2 <- base_line(australia, method = "modpolyfit")
 plot(bl2)
 
-# Using the baseline package independently (useful to plot the corrections)
+# Using the baseline package independently
+# (useful to plot the corrections)
 \dontrun{
 library(baseline)
 bl3 <- baseline(spectra(australia), method = 'irls')
@@ -98,6 +99,6 @@ http://CRAN.R-project.org/package=baseline
 }
 \author{
 Interface to the baseline package by Pierre Roudier
-\url{pierre.roudier@gmail.com}, baseline package authored by Kristian Hovde
+\email{pierre.roudier@gmail.com}, baseline package authored by Kristian Hovde
 Liland and Bjorn-Helge Mevik
 }

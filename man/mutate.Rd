@@ -27,8 +27,7 @@ affect the spectra, one should use the \code{nir} placeholder, eg \code{nir
 = log(1/nir)} \item To affect the attributes of the object, the definitions
 of new columns are simply given using attributes names, \code{newAttribute =
 1/sqrt(attribute)} \item Both spectra and attrbutes can be transformed in
-one command, eg \code{mutate(s, nir = log(1/nir), newAttribute =
-1/sqrt(attribute)} }
+one command.}
 }
 \examples{
 
@@ -41,7 +40,12 @@ m <- mutate(australia, nir = log1p(1/nir))
 plot(m)
 
 # Modifying and creating attributes
-m <- mutate(australia, sqrt_carbon = sqrt(carbon), foo = clay + ph, nir = log1p(1/nir))
+m <- mutate(
+  australia, 
+  sqrt_carbon = sqrt(carbon), 
+  foo = clay + ph, 
+  nir = log1p(1/nir)
+)
 plot(m)
 }
 \references{
@@ -50,6 +54,6 @@ Analysis. Journal of Statistical Software, 40(1), 1-29. URL
 http://www.jstatsoft.org/v40/i01/.
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}, from code from
+Pierre Roudier \email{pierre.roudier@gmail.com}, from code from
 Hadley Wickham
 }

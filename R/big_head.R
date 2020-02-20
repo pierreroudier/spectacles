@@ -12,7 +12,7 @@
 #' @param l a single, positive integer, the number of columns to include on the left
 #' @param r a single, positive integer, the number of columns to include on the right
 #' @return An object (usually) like 'x' but generally smaller.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @seealso \code{\link{head}}, \code{\link{tail}}
 #' @examples
 #' 

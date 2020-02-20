@@ -25,5 +25,5 @@ a vector
 Returns the spectral resolution of an object
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

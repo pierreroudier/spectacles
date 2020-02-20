@@ -1,3 +1,6 @@
+-------------------------- spectacles 0.5.2.2 (2020-02-20) --------------------------
+* Maintenance version to get CRAN check happy
+
 -------------------------- spectacles 0.3-16 (2017-02-27) --------------------------
 * Change of package name
 * Actual CRAN release

@@ -59,12 +59,18 @@ head(r)
 # using ggplot2
 
 # Create some factor
-australia$fact <- sample(LETTERS[1:3], size = nrow(australia), replace = TRUE)
+australia$fact <- sample(
+  LETTERS[1:3], 
+  size = nrow(australia), 
+  replace = TRUE
+)
 r <- melt_spectra(australia, attr = 'fact')
 
 # Create plot
 library(ggplot2)
-p <- ggplot(r) + geom_line(aes(x=wl, y=nir, group=id, colour=fact)) + theme_bw()
+p <- ggplot(r) + 
+  geom_line(aes(x=wl, y=nir, group=id, colour=fact)) + 
+  theme_bw()
 print(p)
 }
 
@@ -75,5 +81,5 @@ Analysis. Journal of Statistical Software, 40(1), 1-29. URL
 http://www.jstatsoft.org/v40/i01/.
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

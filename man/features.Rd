@@ -43,14 +43,17 @@ object.
 
 \code{features(object, safe=TRUE, key=NULL, exclude_id=TRUE) <- value}
 
-\tabular{rll}{ \tab \code{object} \tab A \code{Spectra} object \cr \tab
+\tabular{rll}{ 
+
+\tab \code{object} \tab A \code{Spectra} object \cr \tab
 \code{safe} \tab Logical. If TRUE, data is being added to the object using a
-SQL join (using a key field given by the \code{key} option), otherwise it is
+SQL join (using a key field  given by the \code{key} option), otherwise it is
 assumed the order of the rows is consitent with the order of the rows in
 \code{object} \cr \tab \code{key} \tab Character, name of the column of the
 data.frame storing the ids for the SQL join. Ignored if \code{safe} is
 \code{FALSE}. \cr \tab \code{exclude_id} \tab Logical, if \code{TRUE}, ids
-used for the SQL join are removed from the data slot after the join. \cr }
+used for the SQL join are removed from the data slot after the join.\cr 
+}
 
 \bold{x=SpectraDataFrame}
 
@@ -113,5 +116,5 @@ features(oz)
 \code{\link{SpectraDataFrame-class}}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

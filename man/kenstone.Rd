@@ -26,5 +26,5 @@ An implemnentation of the Kennard-Stone algorithm for calibration set selection.
 Kennard, L.A. Stone, Technometrics 11 (1969) 137.
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

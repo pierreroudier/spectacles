@@ -50,5 +50,5 @@ object, either from scratch, or from an existing Spectra object.
 \code{\link{Spectra-class}}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

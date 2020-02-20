@@ -17,7 +17,7 @@
 #' @param fun an aggregation function
 #' @param ... expressions evaluated in the context of \code{fun}
 #' @return An object of the same class as \code{obj}
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @seealso \code{\link{aggregate_spectra}}, \code{\link{snv}},
 #' \code{\link{rnv}}
 #' @examples
@@ -73,7 +73,7 @@ apply_spectra <- function(obj, fun, ...) {
 #' @param x a vector of numeric values
 #' @param r the percentile to use in the RNV computation
 #' @return A vector of numeric values
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @references 
 #' \itemize{ 
 #'   \item Barnes, R.J., Dhanoa, M.S., Lister, S.J. 1989.
@@ -161,7 +161,7 @@ if (!isGeneric('base_line'))
 #' @return An object of the same class as \code{obj} with the continuum removed
 #' from its spectra.
 #' @author Interface to the baseline package by Pierre Roudier
-#' \url{pierre.roudier@@gmail.com}, baseline package authored by Kristian Hovde
+#' \email{pierre.roudier@@gmail.com}, baseline package authored by Kristian Hovde
 #' Liland and Bjorn-Helge Mevik
 #' @seealso \code{\link{continuum_removal}}, \code{\link{snv}},
 #' \code{\link{rnv}}
@@ -185,7 +185,8 @@ if (!isGeneric('base_line'))
 #' bl2 <- base_line(australia, method = "modpolyfit")
 #' plot(bl2)
 #' 
-#' # Using the baseline package independently (useful to plot the corrections)
+#' # Using the baseline package independently
+#' # (useful to plot the corrections)
 #' \dontrun{
 #' library(baseline)
 #' bl3 <- baseline(spectra(australia), method = 'irls')
@@ -228,7 +229,7 @@ setMethod('base_line', 'Spectra', function(object, ...) {
 #' @param upper if TRUE, removes the upper convex hull from the spectra, if
 #' FALSE, takes the lower convex hull
 #' @return A numeric vector with its continuum removed.
-#' @author Pierre Roudier \url{pierre.roudier@@gmail.com}, based on code from
+#' @author Pierre Roudier \email{pierre.roudier@@gmail.com}, based on code from
 #' Raphael Viscarra-Rossel.
 #' @seealso \code{\link{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
 #' @references Clark, R.N., and Roush, T.L. 1984. Reflectance spectroscopy:

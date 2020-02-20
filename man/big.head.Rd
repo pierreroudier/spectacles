@@ -43,5 +43,5 @@ big.head(australia)
 \code{\link{head}}, \code{\link{tail}}
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }

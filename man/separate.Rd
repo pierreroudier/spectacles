@@ -14,8 +14,6 @@
 
 \item{calibration}{The fraction of the dataset to be put in the calibration
 set}
-
-\item{...}{Ignored}
 }
 \value{
 An list with two \code{SpectraDataFrame} objects, one for the
@@ -36,5 +34,5 @@ str(l)
 lapply(l, nrow)
 }
 \author{
-Pierre Roudier \url{pierre.roudier@gmail.com}
+Pierre Roudier \email{pierre.roudier@gmail.com}
 }
