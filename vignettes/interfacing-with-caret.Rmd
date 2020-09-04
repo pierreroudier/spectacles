@@ -1,0 +1,184 @@
+---
+title: "Spectral modelling and predictions using the `caret` package"
+author: "Pierre Roudier"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spectral modelling and predictions using the caret package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = 'center',
+  fig.height = 5,
+  fig.width = 5
+)
+```
+
+The `spectacles` package focuses on making the handling of spectral data (along with its associated attribute data) easy: *by design*, the tasks of tuning and fitting prediction models (either for regression or classification) are out-of-scope. Rather than re-implementing those routines, `spectacles` delegates these tasks to the numerous R packages that facilitates this. In particular, the package works very well with [the `caret` package](https://topepo.github.io/caret/). 
+
+
+```{r libs, message=FALSE}
+library(dplyr)
+library(spectacles)
+library(caret)
+```
+
+Here we demonstrate a simple example of tuning and fitting a prediction model for the soil organic carbon content field of the `australia` dataset that is shipped with the `spectacles` package. This vignette assumes some basic understanding of the `caret` package. The reader is in particular referred to [the short introduction to `caret` vignette](https://cran.r-project.org/web/packages/caret/vignettes/caret.html).  
+
+# Loading the example dataset 
+
+The `australia` dataset, shipped with the `spectacles` package is a collection of 100 visible near-infrared spectra collected on air-dried soils. More information about this dataset is available on its manual page (`?australia`). The dataset can be loaded quickly using the `load_oz` function:
+
+```{r data}
+# This loads the "australia" example dataset
+oz <- load_oz()
+```
+
+This creates the object `oz`, of class `SpectraDataFrame`. A dedicated vignette will be available to explain the creation of `SpectraDataFrame` objects from scratch.  
+
+# Pre-processing
+
+Pre-processing will be the focus of a dedicated vignette. Here we keep things simple, and limit pre-processingto remove the splice steps that affect the spectra. This is done using the `splice` function:
+
+```{r splice}
+oz <- splice(oz)
+```
+
+# Data split
+
+First, the `australia` dataset is split into a calibration and a validation set. Here we keep things simple, and use a 75%--25% random split:
+
+```{r split}
+set.seed(1) # To make the split reproducible
+idx <- sample(1:nrow(oz), size = 75)
+oz_calib <- oz[idx, ]
+oz_valid <- oz[-idx, ]
+```
+
+Note that `SpectraDataFrame` objects can be subsetted simply by using the `[` operator. 
+
+# Parametrisation of a PLS model 
+
+The main `spectacles` function used to interface with `caret` is the `spectra` function, which extracts the spectral matrix that is associated with analytical data. This matrix represents the predictors used to predict a given outcome ("`x`"), while the outcome of the model ("`y`") is an analytical attribute, and can be extracted from the `SpectraDataFrame` object using the `$` operator:
+
+```{r extracts}
+# The `spectra` function extracts the spectral matrix...
+spec_mat <- spectra(oz)
+big.head(spec_mat)
+
+# ... while analytical data can be accessed using `$`
+oz$carbon
+```
+
+Therefore, the `train` function can simply be used by populating its `x` and `y` arguments:
+
+```{r fit_1}
+fit1 <- train(
+  # The `spectra` function extract the spectra matrix
+  x = spectra(oz_calib), 
+  # analytical data can be extracted using `$`
+  y = oz_calib$carbon,
+  # Here we choose the PLS regression method
+  method = "pls",
+  # The train function will try 3 possible parameters for the PLS
+  tuneLength = 3
+)
+```
+
+# Using spectroscopy-specific performance metrics
+
+## As part of the model tuning 
+
+The `spectacles` even provide a summary functions akin to those in `caret`, but that work better for spectroscopy. The `spectroSummary` function works like the `defaultSummary` function in `caret`, but adds indicators that are popular in spectroscopy, such as RPD, RPIQ, or CCC:
+
+```{r fit_2}
+fit2 <- train(
+    x = spectra(oz_calib),
+    y = oz_calib$carbon,
+    method = "pls",
+    tuneLength = 10,
+    trControl = trainControl(
+      # Here we can specify the summary function used during parametrisation
+      summaryFunction = spectroSummary
+    ),
+    # Here we can specifiy which metric to use to optimise the model parameters
+    metric = "RPIQ"
+)
+```
+
+The parametrisation of the resulting model can be plotted and inspected using the usual `caret` tools:
+
+```{r summarySpectro, }
+plot(fit2)
+print(fit2)
+```
+
+Different models can also be compared:
+
+```{r 2mods}
+preds <- extractPrediction(
+  # Here we specify the `caret` models we want to compare
+  models = list(
+    pls1 = fit1, 
+    pls2 = fit2
+  ), 
+  testX = spectra(oz_valid), 
+  testY = oz_valid$carbon
+) 
+
+# necessary so 2 PLS model can be compared in `plotObsVsPred`
+preds$model <- preds$object
+
+plotObsVsPred(preds)
+```
+
+The model `fit2` outperforms the model `fit1`: hardly a surprise as we limited the latter to 3 latent variables, which is clearly too few in this instance. 
+
+## During the assessment of the performance of the model 
+
+Finally, those specific performance indicators can also be used to asses the final results. PLS predictions can be generated using the `predict` function from the `caret` package, and its result passed to `postResampleSpectro`:
+
+```{r postResampleSpectro1}
+# Simple example for the entire dataset
+postResampleSpectro(
+  pred = predict(fit2, spectra(oz)), 
+  obs = oz_valid$carbon
+)
+```
+
+Again, this function mimics its `caret` equivalent, `postResample`. 
+
+A more useful thing to do, from a modelling standpoint, is to compare those performance results on the calibration, validation, and bootstrapped sets (especially the two latter ones): 
+
+```{r postResampleSpectro2}
+# Run model predictions and extract performance statistics for 
+# caliration and validation
+res_calibration <- postResampleSpectro(pred = predict(fit2, spectra(oz_calib)), obs = oz_calib$carbon)
+res_validation <- postResampleSpectro(pred = predict(fit2, spectra(oz_valid)), obs = oz_valid$carbon)
+
+# Bootstrapped results can be extracted from the `train` object:
+res_boot <- fit2$results %>% 
+  filter(ncomp == fit2$bestTune$ncomp) %>% 
+  select(names(res_calibration))
+
+# Assemble the calibration, validation, and 
+# bootstrapped results in a single data.frame
+res <- rbind(
+  data.frame(type = "Calibration", t(res_calibration)),
+  data.frame(type = "Validation", t(res_validation)),
+  data.frame(type = "Bootstrap", res_boot)
+)
+```
+
+Which gives the following results:
+
+```{r res_table, results='asis', echo=FALSE}
+knitr::kable(res, digits = 2)
+```
+
+

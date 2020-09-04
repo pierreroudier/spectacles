@@ -27,10 +27,12 @@ Imports:
 Suggests:
     caret,
     pls,
-    RColorBrewer
+    RColorBrewer,
+    knitr,
+    rmarkdown
 License: GPL-3
 LazyData: true
-Collate: 
+Collate:
     'spectacles-package.R'
     'AAA-Classes.R'
     'Spectra-methods.R'
@@ -46,3 +48,4 @@ Collate:
     'setters.R'
     'splice.R'
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
