@@ -1,0 +1,125 @@
+---
+title: "A quick start to the `spectacles` package"
+author: "Pierre Roudier"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{A quick start to the spectacles package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = 'center',
+  fig.height = 5,
+  fig.width = 5
+)
+```
+
+```{r libs}
+library(spectacles)
+```
+
+# Converting data to a `SpectraDataFrame`
+
+```{r australia}
+data("australia")
+class(australia)
+big.head(australia)
+```
+
+```{r conversion}
+spectra(australia) <- sr_no ~ ... ~ 350:2500
+summary(australia)
+```
+
+# Accessing the different elements of the `SpectraDataFrame` object
+
+## General information about the `SpectraDataFrame` 
+
+`nrow` returns the number of samples in the object:
+
+```{r}
+nrow(australia)
+```
+
+`ncol` returns the number of attributes in the data slot of the object, and returns `NULL` if the object does not have associated data:
+
+```{r}
+ncol(australia)
+```
+
+`length` returns the number of wavelengths in the object:
+
+```{r}
+length(australia)
+```
+
+`dim` returns a numeric vector of these three dimensions:
+
+```{r}
+dim(australia)
+```
+
+## Subsetting
+
+```{r}
+sub <- australia[1:5,]
+summary(sub)
+```
+
+## Accessing specific properties of Spectra objects
+
+Specific functions are available to access the various properties of Spectra objects:
+
+`ids` is returning a vector containing the IDs of the object. It has a `as.vector` option. When turned to `FALSE`, the function returns a `data.frame` instead of a vector. This is particularly useful to retrieve the original column name of the IDs: 
+
+```{r}
+# Just printing the first 5
+ids(australia)[1:5]
+```
+
+`wl` is returning the wavelengths of the object in a numeric vector:
+
+```{r}
+# Just printing the first 10
+wl(australia)[1:10]
+```
+
+`spectra` is returning the spectra matrix:
+
+
+```{r}
+s <- spectra(australia)
+class(s)
+dim(s)
+big.head(s)
+```
+
+`wl_units` is returning the wavelength units:
+
+
+```{r}
+wl_units(australia)
+```
+
+`features` is returning associated data into a `data.frame`:
+
+```{r}
+df <- features(australia)
+class(df)
+head(df)
+```
+
+# Basic plotting 
+
+```{r plot-1}
+plot(australia)
+```
+
+```{r plot-2}
+plot(australia, col = "royalblue")
+```
