@@ -4,17 +4,24 @@
 \alias{summary}
 \alias{summary.Spectra}
 \alias{print.summary.Spectra}
+\alias{print.summary.Spectra}
 \title{Summary}
 \usage{
 \\method{summary}{Spectra}(object, ...)
+
+\method{print}{summary.Spectra}(x, ...)
 }
 \arguments{
 \item{object}{an object of class \code{Spectra} or \code{SpectraDataFrame}}
 
 \item{...}{Additional arguments passed to \code{summary}}
+
+\item{x}{a result of \code{summary}}
 }
 \value{
 A \code{"summary.Spectra"} object
+
+\code{NULL}
 }
 \description{
 Summarize a Spectra* object.
