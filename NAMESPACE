@@ -79,6 +79,7 @@ S3method("names<-", SpectraDataFrame)
 S3method(as.data.frame, Spectra)
 S3method(as.data.frame, SpectraDataFrame)
 S3method(summary, Spectra)
+S3method(print, summary.Spectra)
 S3method(rbind, Spectra)
 S3method(rbind, SpectraDataFrame)
 

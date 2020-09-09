@@ -1,3 +1,7 @@
+-------------------------- spectacles 0.5.3 (2020-09-09) --------------------------
+* New vignettes
+* Fixed bug affecting `summary` and `print.summary`
+
 -------------------------- spectacles 0.5.2.2 (2020-02-20) --------------------------
 * Maintenance version to get CRAN check happy
 
