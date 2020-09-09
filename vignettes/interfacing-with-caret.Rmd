@@ -4,7 +4,7 @@ author: "Pierre Roudier"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Spectral modelling and predictions using the caret package}
+  %\VignetteIndexEntry{Spectral modelling and prediction using the caret package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
