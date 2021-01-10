@@ -136,7 +136,6 @@ summary.Spectra <- function (object, ...){
 #'
 #' @rdname summary
 #' @method print summary.Spectra
-#' @S3method print summary.Spectra
 #' @export print.summary.Spectra
 #' @export
 print.summary.Spectra <- function(x, ...) {
@@ -619,7 +618,8 @@ setMethod("res", "Spectra", .res.Spectra)
 #' @name extraction-methods
 #' @description These methods emulates classic base methods '[', '[[' and '$' to extract or replace parts of Spectra* objects.
 #' 
-#' @aliases [ [<- [[ [[<- $ $<- [,Spectra-method [[,Spectra-method [[<-,Spectra-method [,Spectra,ANY,ANY,missing-method [,SpectraDataFrame,ANY,ANY,missing-method [[,SpectraDataFrame,ANY,missing-method [[<-,Spectra,ANY,missing-method [<-,SpectraDataFrame-method $<-,Spectra-method $,SpectraDataFrame-method
+#' @aliases [ [<- [[ [[<- $ $<- [,Spectra-method [[,Spectra-method [[<-,Spectra-method [,Spectra,ANY,ANY,missing-method [,SpectraDataFrame,ANY,ANY,missing-method [[,SpectraDataFrame,ANY,missing-method [[<-,Spectra,ANY,missing-method [<-,SpectraDataFrame-method $<-,Spectra-method $,SpectraDataFrame-method  [[<-,Spectra,ANY,missing,ANY
+#' 
 #' 
 #' @docType methods
 #' 
