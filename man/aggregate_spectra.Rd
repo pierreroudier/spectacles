@@ -5,13 +5,11 @@
 \alias{aggregate_spectra}
 \alias{aggregate_spectra,Spectra-method}
 \alias{aggregate_spectra,SpectraDataFrame-method}
-\alias{aggregate_spectra,SpectraDataFrame-method}
 \title{Aggregates spectral and data information}
 \usage{
 \S4method{aggregate_spectra}{Spectra}(obj, fun = mean, ...)
 
-\S4method{aggregate_spectra}{SpectraDataFrame}(obj, fun = mean, id = NULL,
-  ...)
+\S4method{aggregate_spectra}{SpectraDataFrame}(obj, fun = mean, id = NULL, ...)
 }
 \arguments{
 \item{obj}{see below}

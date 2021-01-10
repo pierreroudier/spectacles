@@ -6,7 +6,6 @@
 \alias{melt_spectra-methods}
 \alias{melt_spectra,Spectra-method}
 \alias{melt_spectra,SpectraDataFrame-method}
-\alias{melt_spectra,SpectraDataFrame-method}
 \title{Melts the spectra data of a Spectra object and returns it as wide format.}
 \usage{
 melt_spectra(obj, attr=NULL, ...)

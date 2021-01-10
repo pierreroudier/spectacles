@@ -4,8 +4,14 @@
 \alias{SpectraDataFrame}
 \title{Constructor for the SpectraDataFrame class.}
 \usage{
-SpectraDataFrame(..., wl = numeric(), nir = matrix(),
-  id = as.character(NA), units = "nm", data = data.frame())
+SpectraDataFrame(
+  ...,
+  wl = numeric(),
+  nir = matrix(),
+  id = as.character(NA),
+  units = "nm",
+  data = data.frame()
+)
 }
 \arguments{
 \item{...}{an object inheriting from \code{"Spectra"}}

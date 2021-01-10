@@ -6,7 +6,6 @@
 \alias{wl_units<-}
 \alias{wl_units,Spectra-method}
 \alias{wl_units<-,Spectra-method}
-\alias{wl_units<-,Spectra-method}
 \title{Wavelengths of Spectra* objects}
 \usage{
 wl_units(object)

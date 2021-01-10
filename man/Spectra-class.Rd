@@ -12,7 +12,6 @@
 \alias{names<-.SpectraDataFrame}
 \alias{print,Spectra-method}
 \alias{show,Spectra-method}
-\alias{SpectraDataFrame-class}
 \title{Spectra* classes}
 \description{
 The spectacles package provides the user with S4 classes that have been
@@ -42,8 +41,6 @@ Common generic methods implemented for these classes include:
 \code{SpatialPoints} methods from the sp package can be applied to
 \code{SpatialSpectra} and \code{SpatialSpectraDataFrame} objects are they
 inherit from this class.
-
-Class for spectra collections with associated attributes
 }
 \section{Slots}{
 

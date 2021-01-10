@@ -5,7 +5,6 @@
 \alias{plot}
 \alias{plot.Spectra}
 \alias{plot,Spectra,ANY-method}
-\alias{plot.Spectra}
 \title{Plots an object inheriting from the Spectra class}
 \usage{
 \method{plot}{Spectra}(x,gg,gaps,attr,\dots)

@@ -4,14 +4,11 @@
 \alias{rbind}
 \alias{rbind.Spectra}
 \alias{rbind.SpectraDataFrame}
-\alias{rbind}
-\alias{rbind.SpectraDataFrame}
 \title{Stacking \code{Spectra} objects together}
 \usage{
 \method{rbind}{Spectra}(..., create_new_ids = FALSE, new_ids = NULL)
 
-\method{rbind}{SpectraDataFrame}(..., create_new_ids = FALSE,
-  new_ids = NULL)
+\method{rbind}{SpectraDataFrame}(..., create_new_ids = FALSE, new_ids = NULL)
 }
 \arguments{
 \item{\dots}{The \code{Spectra} objects to be combined.}

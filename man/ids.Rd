@@ -7,8 +7,6 @@
 \alias{ids,Spectra-method}
 \alias{ids<-,Spectra-method}
 \alias{ids<-,SpectraDataFrame-method}
-\alias{ids<-,Spectra-method}
-\alias{ids<-,SpectraDataFrame-method}
 \title{Retrieves or sets the ids of a \code{Spectra*} object.}
 \usage{
 ids(object, ...)

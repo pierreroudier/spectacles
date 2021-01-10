@@ -1,6 +1,7 @@
 #' Internal helper function for the splice correction
 #' Computes the splice correction matrix between the 
 #' VIS and SWIR1 sensors
+#' @noRd
 .correct_splice_1 <- function(w, nir, vertex, reference) {
   
   # Getting index of wavelengths
@@ -26,6 +27,7 @@
 #' Internal helper function for the splice correction
 #' Computes the splice correction matrix between the 
 #' SWIR1 and SWIR2 sensors
+#' @noRd
 .correct_splice_2 <- function(w, nir, vertex, reference) {
   
   # Getting index of wavelengths
@@ -49,11 +51,12 @@
   res
 }
 
-# Method for a matrix
-# w a vector of the wavelengths at which spectra are collected
-# nir a matrix of spectra
-# locations a list of length 2 describing the reference points and vertex points
-# for the parabolic offset correction.
+#' Method for a matrix
+#' w a vector of the wavelengths at which spectra are collected
+#' nir a matrix of spectra
+#' locations a list of length 2 describing the reference points and vertex points
+#' for the parabolic offset correction.
+#' @noRd
 .splice.numeric <- function(w, nir, locations = list(c(700, 1000), c(1830, 1950))) {
   
   # Initialisation of the correction matrix as identity

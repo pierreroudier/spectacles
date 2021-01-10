@@ -4,8 +4,7 @@
 \alias{Spectra}
 \title{Constructor for the Spectra class.}
 \usage{
-Spectra(wl = numeric(), nir = matrix(), id = as.character(NA),
-  units = "nm")
+Spectra(wl = numeric(), nir = matrix(), id = as.character(NA), units = "nm")
 }
 \arguments{
 \item{wl}{a numeric vector giving the wavelengths at with the spectra have

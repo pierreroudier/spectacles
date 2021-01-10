@@ -3,7 +3,6 @@
 \name{snv}
 \alias{snv}
 \alias{rnv}
-\alias{rnv}
 \title{Standard and Robust Normal Variate transformations}
 \usage{
 snv(x)

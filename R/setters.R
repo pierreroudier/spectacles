@@ -7,6 +7,7 @@
 #' that have been extracted from x.
 #' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @import plyr stringr
+#' @noRd
 .guessWl <- function(x){
   # simply returns the wavelengths from a string
   as.numeric(laply(.data=str_extract_all(x, "\\d"), .fun=paste, collapse=""))
@@ -26,6 +27,7 @@
 #' given in wl.
 #' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @import plyr stringr
+#' @noRd
 .findSpectraCols <- function(data, wl, ...){
 
   # for each colname, we check if a part of it is in the spectral range
@@ -133,6 +135,7 @@ setReplaceMethod("wl", "Spectra",
 #' the data slot and the nir slot of teh Spectra* object
 #' @author Pierre Roudier \email{pierre.roudier@@gmail.com}
 #' @import stringr plyr
+#' @noRd
 .parse_formula <- function(formula, object){
   formula <- str_c(deparse(formula, 500), collapse="")
 

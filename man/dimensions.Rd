@@ -9,9 +9,6 @@
 \alias{dim}
 \alias{length}
 \alias{dim.Spectra}
-\alias{nrow,Spectra-method}
-\alias{ncol,Spectra-method}
-\alias{dim.Spectra}
 \title{Retrieve dimensions of Spectra* objects}
 \usage{
 \method{length}{Spectra}(x)
@@ -33,8 +30,6 @@ object. For \code{ncol}, a \code{SpectraDataFrame} object.}
 \description{
 Retrieves the wavelengths units and the spectral resolution from
 \code{Spectra*} objects.
-
-Returns the number of samples in the object
 }
 \details{
 * Methods for \code{Spectra} objects

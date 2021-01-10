@@ -4,7 +4,6 @@
 \alias{summary}
 \alias{summary.Spectra}
 \alias{print.summary.Spectra}
-\alias{print.summary.Spectra}
 \title{Summary}
 \usage{
 \\method{summary}{Spectra}(object, ...)

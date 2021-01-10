@@ -7,8 +7,6 @@
 \alias{wl,Spectra-method}
 \alias{wl<-,Spectra-method}
 \alias{wl<-,data.frame-method}
-\alias{wl<-,data.frame-method}
-\alias{wl<-,Spectra-method}
 \title{Retrieves or sets the wavelengths of a \code{Spectra*} object.}
 \usage{
 \S4method{wl}{Spectra}(object)
