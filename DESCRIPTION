@@ -2,7 +2,7 @@ Package: spectacles
 Type: Package
 Title: Storing, Manipulating and Analysis Spectroscopy and Associated Data
 Version: 0.5-3
-Date: 2020-09-09
+Date: 2021-01-11
 Authors@R: c(person(given = "Pierre", family = "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre")),
     person(given = "Max", family = "Kuhn", role = "ctb"),
     person(given = "Kristian Hovde", family = "Liland", role = "ctb"),
