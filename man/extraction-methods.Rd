@@ -19,7 +19,7 @@
 \alias{[<-,SpectraDataFrame-method}
 \alias{$<-,Spectra-method}
 \alias{$,SpectraDataFrame-method}
-\alias{[[<-,Spectra,ANY,missing,ANY}
+\alias{[[<-,Spectra,ANY,missing,ANY-method}
 \title{Extracting and replacing parts of Spectra* objects}
 \usage{
 \\S4method{[}{Spectra}(x,i,j,\dots,drop=FALSE)
