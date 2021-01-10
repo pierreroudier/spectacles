@@ -28,7 +28,7 @@ library(spectacles)
 library(caret)
 ```
 
-Here we demonstrate a simple example of tuning and fitting a prediction model for the soil organic carbon content field of the `australia` dataset that is shipped with the `spectacles` package. This vignette assumes some basic understanding of the `caret` package. The reader is in particular referred to [the short introduction to `caret` vignette](https://cran.r-project.org/web/packages/caret/vignettes/caret.html).  
+Here we demonstrate a simple example of tuning and fitting a prediction model for the soil organic carbon content field of the `australia` dataset that is shipped with the `spectacles` package. This vignette assumes some basic understanding of the `caret` package. The reader is in particular referred to [the short introduction to `caret` vignette](https://cran.r-project.org/package=caret/vignettes/caret.html).  
 
 # Loading the example dataset 
 
