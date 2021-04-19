@@ -870,7 +870,7 @@ setReplaceMethod("features", signature("Spectra", "ANY"),
 #' @aliases rbind.Spectra rbind.SpectraDataFrame
 #' @param \dots The \code{Spectra} objects to be combined.
 #' @param create_new_ids allows creation of new ids if the ids of the
-#' \code{Spectra*} objects you are trying to stack are redondant
+#' \code{Spectra*} objects you are trying to stack are redundant
 #' @param new_ids vector of new ids to be given to the new object
 #' @return a \code{Spectra*} object.
 #' @examples
@@ -889,7 +889,7 @@ rbind.Spectra <- function(..., create_new_ids = FALSE, new_ids = NULL) {
 
   # wl
   wls <- lapply(dots, wl)
-  wl_test <-all(laply(wls, function(x) identical(wls[[1]], x)))
+  wl_test <- all(laply(wls, function(x) identical(wls[[1]], x)))
   if (!wl_test) {
     stop("To be added together, all Spectra objects must share the same wavelengths.")
   } else {
