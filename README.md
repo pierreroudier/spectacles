@@ -1,4 +1,3 @@
-[![Travis-CI Build Status](https://travis-ci.org/pierreroudier/spectacles.svg?branch=master)](https://travis-ci.org/pierreroudier/spectacles)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spectacles)](https://CRAN.R-project.org/package=spectacles)
 [![Total_Downloads](http://cranlogs.r-pkg.org/badges/grand-total/spectacles)](https://cran.r-project.org/package=spectacles)
 
