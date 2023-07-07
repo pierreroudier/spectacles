@@ -4,9 +4,9 @@ if(!exists("meta") || is.null(meta)) meta <- packageDescription("spectacles")
 year <- sub("-.*", "", meta$Date)
 vers <- paste("R package version", meta$Version)
 
-citEntry(entry = "Manual",
+bibentry(entry = "Manual",
   title = "spectacles: Storing and Manipulating Spectroscopy Data in R",
-  author = personList(as.person("Pierre Roudier")),
+  author = c(as.person("Pierre Roudier")),
   year = year,
   note = vers,
   textVersion = paste("Pierre Roudier (", year, "). spectacles: Storing and Manipulating Spectroscopy Data in R ", vers, ".", sep="")
