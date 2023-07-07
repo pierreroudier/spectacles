@@ -134,8 +134,8 @@ big.head(oz_by_col)
 spectra(oz_by_col, mode = "colwise") <- wl ~ ...
 
 # Then data can be added to promote it as a SpectraDataFrame
-my.data <- features(oz, exclude_id = FALSE)
-features(oz_by_col, key = 'sr_no') <- my.data
+my.data <- features(oz)
+features(oz_by_col) <- my.data
 
 }
 \author{

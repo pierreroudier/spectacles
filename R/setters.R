@@ -49,10 +49,9 @@
 
 ## setters for Spectra objects
 
-if (!isGeneric('wl<-')) {
+# if (!isGeneric('wl<-')) 
   setGeneric('wl<-', function(object, value)
     standardGeneric('wl<-'))
-}
 
 #' @rdname wl
 setReplaceMethod("wl", "data.frame",
@@ -222,10 +221,9 @@ setReplaceMethod("wl", "Spectra",
 ## IMPORTANT: The spectra() functionis for wide-formatted data. See spectra_long()
 ## method for long-formated data
 ##
-if (!isGeneric('spectra<-')) {
+# if (!isGeneric('spectra<-')) 
   setGeneric('spectra<-', function(object, ..., value)
     standardGeneric('spectra<-'))
-}
 
 ## for a data.frame
 
@@ -377,10 +375,9 @@ setReplaceMethod("spectra", "Spectra",
 
 ## id
 
-if (!isGeneric('ids<-')) {
+# if (!isGeneric('ids<-')) 
   setGeneric('ids<-', function(object, value)
     standardGeneric('ids<-'))
-}
 
 #' @rdname ids
 setReplaceMethod("ids", "Spectra",

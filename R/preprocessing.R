@@ -116,7 +116,7 @@ rnv <- function(x, r){
 
 ## Baseline using the baseline package
 
-if (!isGeneric('base_line'))
+# if (!isGeneric('base_line'))
   setGeneric('base_line', function(object, ...)
     standardGeneric('base_line')
 )

@@ -100,14 +100,12 @@ d <- data.frame(
 head(d)
 
 # Affecting data to Spectra object
-features(s, key = 'id') <- d
+features(s) <- d
+features(s)
 
 # Adding data to an existing SpectraDataFrame object
-features(oz, key = 'id') <- d
-features(oz)
 
-# Replacing data of an existing SpectraDataFrame object
-features(oz, key = 'id', append = FALSE) <- d
+features(oz) <- d
 features(oz)
 
 }

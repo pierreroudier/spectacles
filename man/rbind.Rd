@@ -14,7 +14,7 @@
 \item{\dots}{The \code{Spectra} objects to be combined.}
 
 \item{create_new_ids}{allows creation of new ids if the ids of the
-\code{Spectra*} objects you are trying to stack are redondant}
+\code{Spectra*} objects you are trying to stack are redundant}
 
 \item{new_ids}{vector of new ids to be given to the new object}
 }

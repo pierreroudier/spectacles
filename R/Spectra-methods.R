@@ -203,9 +203,12 @@ setAs("Spectra", "data.frame", function(from)
 ## Accessing data
 
 # Getting the spectra matrix
-if (!isGeneric("spectra"))
-  setGeneric("spectra", function(object, ...)
-    standardGeneric("spectra"))
+# if (!isGeneric("spectra")) {
+  setGeneric(
+    name = "spectra", 
+    def = function(object, ...) standardGeneric("spectra")
+  )
+# }
 
 #' @title Retrieves or sets the spectra of a \code{Spectra*} objects.
 #' @name spectra-methods
@@ -322,8 +325,8 @@ if (!isGeneric("spectra"))
 #' spectra(oz_by_col, mode = "colwise") <- wl ~ ...
 #' 
 #' # Then data can be added to promote it as a SpectraDataFrame
-#' my.data <- features(oz, exclude_id = FALSE)
-#' features(oz_by_col, key = 'sr_no') <- my.data
+#' my.data <- features(oz)
+#' features(oz_by_col) <- my.data
 #' 
 setMethod("spectra", "Spectra",
   function(object) {
@@ -334,7 +337,7 @@ setMethod("spectra", "Spectra",
 )
 
 # Getting the wavelengths
-if (!isGeneric("wl"))
+# if (!isGeneric("wl"))
   setGeneric("wl", function(object, ...)
     standardGeneric("wl"))
 
@@ -395,7 +398,7 @@ setMethod("wl", "Spectra",
 )
 
 # Getting the ids
-if (!isGeneric("ids"))
+# if (!isGeneric("ids"))
   setGeneric("ids", function(object, ...)
     standardGeneric("ids"))
 
@@ -462,7 +465,7 @@ setMethod("ids", "Spectra",
 )
 
 # Getting the units
-if (!isGeneric("wl_units"))
+# if (!isGeneric("wl_units"))
   setGeneric("wl_units", function(object)
     standardGeneric("wl_units"))
 
@@ -494,7 +497,7 @@ setMethod("wl_units", signature = "Spectra",
     object@units
 )
 
-if (!isGeneric('wl_units<-'))
+# if (!isGeneric('wl_units<-'))
   setGeneric('wl_units<-', function(object, value)
     standardGeneric('wl_units<-'))
 
@@ -582,7 +585,7 @@ dim.Spectra <- function(x) {
 
 ## Returns spectral resolution of the wavelengths
 
-if (!isGeneric("res"))
+# if (!isGeneric("res"))
   setGeneric("res", function(x)
     standardGeneric("res"))
 
@@ -753,7 +756,7 @@ setMethod("[", c("Spectra", "ANY", "ANY", "missing"),
 
 ## Promote a Spectra object to a SpectraDataFrame
 
-if (!isGeneric('features<-'))
+# if (!isGeneric('features<-'))
   setGeneric('features<-', function(object, ..., value)
     standardGeneric('features<-')
   )
@@ -1073,7 +1076,7 @@ setMethod("mutate", "Spectra", function (.data, ...){
 
 ## Separate calibration set vs validation set
 
-if (!isGeneric("separate"))
+# if (!isGeneric("separate"))
   setGeneric("separate", function(obj, calibration, ...)
     standardGeneric("separate"))
 
@@ -1106,7 +1109,7 @@ setMethod("separate", "Spectra", function(obj, calibration){
   list(calibration=obj[calib, ], validation=obj[valid, ])
 })
 
-if (!isGeneric('melt_spectra'))
+# if (!isGeneric('melt_spectra'))
   setGeneric('melt_spectra', function(obj, attr = NULL,...)
     standardGeneric('melt_spectra')
 )
@@ -1189,10 +1192,9 @@ setMethod("melt_spectra", "Spectra", function(obj, attr = NULL, ...){
 ## Selecting/cutting wavelengths
 
 # Negative values will be to remove, positive to select
-if (!isGeneric("cut")) {
+# if (!isGeneric("cut")) 
     setGeneric("cut", function(x, ...)
         standardGeneric("cut"))
-}   
 
 #' Manipulating the wavelength range of a \code{Spectra} object
 #' 

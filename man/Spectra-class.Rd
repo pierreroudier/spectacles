@@ -71,6 +71,4 @@ showClass("SpectraDataFrame")
 }
 \author{
 Pierre Roudier \email{pierre.roudier@gmail.com}
-
-Pierre Roudier \email{pierre.roudier@gmail.com}
 }

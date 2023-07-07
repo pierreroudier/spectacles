@@ -140,10 +140,9 @@ plot.Spectra <- function(x, gg = FALSE, gaps = TRUE, attr = NULL, ...) .plot.Spe
   }
 }
 
-if (!isGeneric("plot_summary")) {
+# if (!isGeneric("plot_summary"))
     setGeneric("plot_summary", function(x, fun = mean, se = TRUE, ...)
         standardGeneric("plot_summary"))
-}
 
 #' @title Summary plot of a collection of spectra
 #' @aliases plot_summary plot_summary,Spectra-method
@@ -220,10 +219,9 @@ setMethod("plot_summary", signature('Spectra'),
   }
 )
 
-if (!isGeneric("plot_stack")) {
+# if (!isGeneric("plot_stack"))
     setGeneric("plot_stack", function(x)
         standardGeneric("plot_stack"))
-}
 
 #' @title Stacked plot of a collection of spectra
 #' @name plot_stack
@@ -250,10 +248,9 @@ setMethod("plot_stack", signature('Spectra'),
   }
 )
 
-if (!isGeneric("plot_offset")) {
+# if (!isGeneric("plot_offset"))
     setGeneric("plot_offset", function(x, offset = 1)
         standardGeneric("plot_offset"))
-}
 
 #' @title Offset plot of a collection of spectra
 #' @name plot_offset
@@ -301,10 +298,9 @@ setMethod("plot_offset", signature('Spectra'),
 
 
 
-if (!isGeneric("fill_spectra")) {
+# if (!isGeneric("fill_spectra")) 
   setGeneric("fill_spectra", function(obj, ...)
     standardGeneric("fill_spectra"))
-}
 
 .fill_spectra <- function(obj, ref = NULL, fill = NA, ...) {
 

@@ -10,7 +10,8 @@ postResampleSpectro <- function(pred, obs){
       # Compute preds-obs correlation
       resamplCor <- try(cor(pred, obs, use = "pairwise.complete.obs"), silent = TRUE)
       # Manage error
-      if (class(resamplCor) == "try-error") 
+      # if (class(resamplCor) == "try-error")
+      if (is(resamplCor, "try-error"))
         resamplCor <- NA
     }
     

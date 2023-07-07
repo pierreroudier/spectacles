@@ -1,4 +1,4 @@
-if (!isGeneric("kenstone"))
+# if (!isGeneric("kenstone"))
   setGeneric("kenstone", function(x, size, ...)
     standardGeneric("kenstone"))
 

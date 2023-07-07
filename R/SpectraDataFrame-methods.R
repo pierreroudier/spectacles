@@ -135,8 +135,9 @@ setAs("SpectraDataFrame", "data.frame", function(from) {
 
 ## Getting the data
 
-if (!isGeneric("features"))
+# if (!isGeneric("features"))
   setGeneric("features", function(object, exclude_id = TRUE)
+  # setGeneric("features", function(object, ...)
     standardGeneric("features"))
 
 #' @title Retrieves or sets the data slot of a SpectraDataFrame object.
@@ -225,18 +226,17 @@ if (!isGeneric("features"))
 #' head(d)
 #' 
 #' # Affecting data to Spectra object
-#' features(s, key = 'id') <- d
+#' features(s) <- d
+#' features(s)
 #' 
 #' # Adding data to an existing SpectraDataFrame object
-#' features(oz, key = 'id') <- d
-#' features(oz)
 #' 
-#' # Replacing data of an existing SpectraDataFrame object
-#' features(oz, key = 'id', append = FALSE) <- d
+#' features(oz) <- d
 #' features(oz)
 #' 
 setMethod("features", "SpectraDataFrame",
   function(object, exclude_id = TRUE) {
+  # function(object, ..., exclude_id = TRUE) {
     if (!exclude_id) {
       res <- data.frame(ids(object, as.vector = FALSE), object@data) 
     } else {
@@ -248,58 +248,73 @@ setMethod("features", "SpectraDataFrame",
 
 ## Append or replace data
 
-if (!isGeneric('features<-'))
-  setGeneric('features<-', function(object, value, safe = TRUE, key = NULL, exclude_id = TRUE, append = TRUE)
+# if (!isGeneric('features<-'))
+  # setGeneric('features<-', function(object, value, safe = TRUE, key = NULL, exclude_id = TRUE, append = TRUE)
+  setGeneric('features<-', function(object, value)
     standardGeneric('features<-')
 )
 
+setReplaceMethod(
+  "features", 
+  signature("Spectra", "ANY"),
+  function(object, value) {
+    SpectraDataFrame(object, data = value)
+  }
+)
+                   
+                   
 setReplaceMethod("features", signature("SpectraDataFrame", "ANY"),
   # safe enables id check
   # key gives the column name of the ids in the data.frame
-  function(object, value, safe = TRUE, key = NULL, exclude_id = TRUE, append = TRUE) {
+  function(object, value) {
+  # function(object, value, safe = TRUE, key = NULL, exclude_id = TRUE, append = TRUE) {
     
     if (!inherits(value, "data.frame"))
       stop('data must be provided as a data.frame object')
 
-    if (safe) {
-      if (is.null(key))
-        stop("In the safe mode, you need to provide either the column name of the sample ids to the key option.")
-      if (length(key) != 1)
-        stop("Please provide only ONE id column.")
-
-      if (is.numeric(key)) {
-        key <- names(value)[key]
-      }
-
-      if (append) {
-        # Actual ID sanity check
-        d <- data.frame(ids(object, as.vector = FALSE), features(object))
-        # Using the "key" name for ids
-        names(d)[1] <- key
-      }
-      else {
-        d <- ids(object, as.vector = FALSE)
-        # Using the "key" name for ids
-        names(d) <- key
-      }
-
-      # Safety: to avoid headaches with factors,
-      # Both id columns are forced to be characters
-      d[[key]] <- as.character(d[[key]])
-      value[[key]] <- as.character(value[[key]])
-
-      # Put data together
-      data <- join(d, value,  by = key, type = "left", match = "first")
-      # removing the id column      
-      if (exclude_id)
-        data <- data[, -1*which(names(data) == key), drop = FALSE]
-    }
-    else {
+    # Check whether the number of records in the Spectra object and the data.frame are the same
+    
+    # if (safe) {
+    #   if (is.null(key))
+    #     stop("In the safe mode, you need to provide either the column name of the sample ids to the key option.")
+    #   if (length(key) != 1)
+    #     stop("Please provide only ONE id column.")
+    # 
+    #   if (is.numeric(key)) {
+    #     key <- names(value)[key]
+    #   }
+    # 
+    #   if (append) {
+    #     # Actual ID sanity check
+    #     d <- data.frame(ids(object, as.vector = FALSE), features(object))
+    #     # Using the "key" name for ids
+    #     names(d)[1] <- key
+    #   }
+    #   else {
+    #     d <- ids(object, as.vector = FALSE)
+    #     # Using the "key" name for ids
+    #     names(d) <- key
+    #   }
+    # 
+    #   # Safety: to avoid headaches with factors,
+    #   # Both id columns are forced to be characters
+    #   d[[key]] <- as.character(d[[key]])
+    #   value[[key]] <- as.character(value[[key]])
+    # 
+    #   # Put data together
+    #   data <- join(d, value,  by = key, type = "left", match = "first")
+    #   # removing the id column      
+    #   if (exclude_id)
+    #     data <- data[, -1*which(names(data) == key), drop = FALSE]
+    # }
+    # else {
       warning("Sample ID check has been disabled. This mode assumes you made sure the order of the rows in your data is consistent with the order in which these samples appear in the Spectra object.")
       
-      if (append) data <- data.frame(features(object), value)
-      else data <- value
-    }
+      # if (append) data <- data.frame(features(object), value)
+      # else data <- value
+      
+    data <- cbind(features(object), value)
+    # }
     
     SpectraDataFrame(object, data = data)
   }

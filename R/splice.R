@@ -97,7 +97,7 @@
   return(s)
 }
 
-if (!isGeneric("splice"))
+# if (!isGeneric("splice"))
   setGeneric("splice", function(x, ...)
     standardGeneric("splice"))
 

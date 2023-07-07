@@ -1,5 +1,5 @@
 
-if (!isGeneric("aggregate_spectra"))
+# if (!isGeneric("aggregate_spectra"))
   setGeneric("aggregate_spectra", function(obj, fun = mean, ...)
     standardGeneric("aggregate_spectra"))
 
