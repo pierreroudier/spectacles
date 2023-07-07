@@ -5,7 +5,7 @@ year <- sub("-.*", "", meta$Date)
 vers <- paste("R package version", meta$Version)
 
 bibentry(
-  entry = "Manual",
+  bibtype = "Manual",
   title = "spectacles: Storing and Manipulating Spectroscopy Data in R",
   author = c(as.person("Pierre Roudier")),
   year = year,
