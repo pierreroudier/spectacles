@@ -121,7 +121,7 @@ rnv <- function(x, r){
     standardGeneric('base_line')
 )
 
-#' @title Baseline correction using the baseline package#' 
+#' @title Baseline correction using the baseline package
 #' @name base_line
 #' @aliases base_line base_line,Spectra-method
 #' @docType methods
@@ -231,7 +231,7 @@ setMethod('base_line', 'Spectra', function(object, ...) {
 #' @return A numeric vector with its continuum removed.
 #' @author Pierre Roudier \email{pierre.roudier@@gmail.com}, based on code from
 #' Raphael Viscarra-Rossel.
-#' @seealso \code{\link{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
+#' @seealso \code{\link[baseline]{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
 #' @references Clark, R.N., and Roush, T.L. 1984. Reflectance spectroscopy:
 #' Quantitative analysis techniques for remote sensing applications. Journal of
 #' Geophysical Research 89, 6329--6340.

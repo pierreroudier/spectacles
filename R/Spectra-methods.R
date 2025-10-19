@@ -188,6 +188,8 @@ setMethod(
   }
 )
 
+#' @export
+#' @noRd
 as.data.frame.Spectra <- function(x, ..., exclude_id = FALSE)  {
   df <- as.data.frame(spectra(x))
   names(df) <- wl(x)

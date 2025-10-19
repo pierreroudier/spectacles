@@ -4,7 +4,7 @@
 \name{base_line}
 \alias{base_line}
 \alias{base_line,Spectra-method}
-\title{Baseline correction using the baseline package#'}
+\title{Baseline correction using the baseline package}
 \usage{
 \S4method{base_line}{Spectra}(object, ...)
 }

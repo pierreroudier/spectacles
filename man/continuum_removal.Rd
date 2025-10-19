@@ -48,7 +48,7 @@ Quantitative analysis techniques for remote sensing applications. Journal of
 Geophysical Research 89, 6329--6340.
 }
 \seealso{
-\code{\link{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
+\code{\link[baseline]{baseline}}, \code{\link{snv}}, \code{\link{rnv}}
 }
 \author{
 Pierre Roudier \email{pierre.roudier@gmail.com}, based on code from

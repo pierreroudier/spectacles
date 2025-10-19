@@ -114,6 +114,8 @@
 
 ## coercition methods
 
+#' @export
+#' @noRd
 as.data.frame.SpectraDataFrame = function(x, ..., expand = TRUE, exclude_id = FALSE)  {
   
   data <- features(x, exclude_id = exclude_id)
@@ -423,8 +425,12 @@ setMethod("[", c("SpectraDataFrame", "ANY", "ANY", "missing"),
   }
 )
 
+#' @export
+#' @noRd
 names.SpectraDataFrame <- function(x) names(x@data)
 
+#' @export
+#' @noRd
 "names<-.SpectraDataFrame" <- function(x, value) {
   names(x@data) <- value
   x

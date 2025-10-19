@@ -10,11 +10,11 @@
 #' 
 #' The \code{data.frame} contains the following columns: 
 #' \itemize{
-#'  \item{sr_no}{a unique identifier for each spectrum}
-#'  \item{carbon}{soil organic carbon values}
-#'  \item{ph}{soil pH values}
-#'  \item{clay}{soil clay values}
-#'  \item{X350, X351, \dots{},X2499, X2500}{reflectance in wavelengths 350 to 2500nm}
+#'  \item{sr_no: a unique identifier for each spectrum}
+#'  \item{carbon: soil organic carbon values}
+#'  \item{ph: soil pH values}
+#'  \item{clay: soil clay values}
+#'  \item{X350, X351, \dots{},X2499, X2500: reflectance in wavelengths 350 to 2500nm}
 #' }
 #' 
 #' @docType data
